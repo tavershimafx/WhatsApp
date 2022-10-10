@@ -1,0 +1,56 @@
+﻿<local:BaseControl x:Class="WhatsApp.Desktop.ChatWelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WhatsApp.Desktop"
+      xmlns:core="clr-namespace:WhatsApp.Core;assembly=WhatsApp.Core"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      >
+
+
+
+    <Grid Background="{StaticResource GrayBackgroundBrush}">
+       
+        <StackPanel VerticalAlignment="Center">
+
+            <!--WhatsApp logo-->
+            <TextBlock Text="{StaticResource WhatsAppIcon}"
+                       FontFamily="{StaticResource LineIcon}"
+                       FontSize="58"
+                       Foreground="{StaticResource DarkGrayBackgroundBrush}"
+                       HorizontalAlignment="Center"
+                       />
+
+            <!--App name-->
+            <TextBlock Text="WhatsApp Web"
+                       FontSize="{StaticResource FontSizeXLarge}"
+                       Margin="0 50 0 0"
+                       FontWeight="Normal"
+                       Foreground="#777777"
+                       HorizontalAlignment="Center"
+                       Visibility="{Binding IsDownloadingChats, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
+
+            <!--Text details-->
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        Margin="0 18 0 0">
+                
+                <TextBlock Text="Send and receive messages without keeping your phone online."
+                       FontSize="{StaticResource FontSizeSmall}"
+                       FontWeight="Normal"
+                       Foreground="#777777"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Use WhatsApp on up to 4 linked devices and 1 phone at the same time."
+                       FontSize="{StaticResource FontSizeSmall}"
+                       FontWeight="Normal"
+                       Foreground="#777777"
+                            Margin="0 5 0 0"
+                       HorizontalAlignment="Center"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</local:BaseControl>

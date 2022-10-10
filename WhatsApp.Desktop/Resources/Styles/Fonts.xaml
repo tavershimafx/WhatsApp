@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <!--Font typefaces-->
+    <FontFamily x:Key="LatoRegular">pack://application;,,,/Resources/Fonts/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LatoItalic">pack://application;,,,/Resources/Fonts/#Lato Italic</FontFamily>
+    <FontFamily x:Key="LatoBold">pack://application;,,,/Resources/Fonts/#Lato Bold</FontFamily>
+    <FontFamily x:Key="LineIcon">pack://application;,,,/Resources/Fonts/#LineIcons</FontFamily>
+    
+    <!--Font Icons-->
+    <system:String x:Key="LockIcon">&#xeb1e;</system:String>
+    <system:String x:Key="WhatsAppIcon">&#xec04;</system:String>
+    
+    
+    <!--Font sizes-->
+    <system:Double x:Key="FontSizeSmall">11</system:Double>
+    <system:Double x:Key="FontSizeRegular">13</system:Double>
+    <system:Double x:Key="FontSizeMedium">15</system:Double>
+    <system:Double x:Key="FontSizeLarge">18</system:Double>
+    <system:Double x:Key="FontSizeXLarge">28</system:Double>
+    <system:Double x:Key="FontSizeXXLarge">32</system:Double>
+</ResourceDictionary>

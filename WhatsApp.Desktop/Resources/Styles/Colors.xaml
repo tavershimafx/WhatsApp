@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <Color x:Key="Light">#ffffff</Color>
+    <SolidColorBrush x:Key="LightBrush" Color="{StaticResource Light}"></SolidColorBrush>
+
+    <Color x:Key="ChatGrayBackground">#EFEAE2</Color>
+    <SolidColorBrush x:Key="ChatGrayBackgroundBrush" Color="{StaticResource ChatGrayBackground}"></SolidColorBrush>
+
+    <Color x:Key="Gray">#F0F2F5</Color>
+    <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource Gray}"></SolidColorBrush>
+
+    <Color x:Key="DarkGray">#C1BFBA</Color>
+    <SolidColorBrush x:Key="DarkGrayBrush" Color="{StaticResource DarkGray}"></SolidColorBrush>
+
+    <Color x:Key="Dark">#54656F</Color>
+    <SolidColorBrush x:Key="DarkBrush" Color="{StaticResource Dark}"></SolidColorBrush>
+
+    <Color x:Key="VeryDark">#000000</Color>
+    <SolidColorBrush x:Key="VeryDarkBrush" Color="{StaticResource VeryDark}"></SolidColorBrush>
+
+    <Color x:Key="WhatsAppDarkGreen">#06CF9C</Color>
+    <SolidColorBrush x:Key="WhatsAppGreenBrush" Color="{StaticResource WhatsAppDarkGreen}"></SolidColorBrush>
+
+    <Color x:Key="WhatsAppLightGreen">#D9FDD3</Color>
+    <SolidColorBrush x:Key="WhatsAppLightGreenBrush" Color="{StaticResource WhatsAppLightGreen}"></SolidColorBrush>
+
+    <Color x:Key="WhatsAppBrightGreen">#25D366</Color>
+    <SolidColorBrush x:Key="WhatsAppBrightGreenBrush" Color="{StaticResource WhatsAppBrightGreen}"></SolidColorBrush>
+
+    <Color x:Key="IsReadBlue">#00AFF0</Color>
+    <SolidColorBrush x:Key="IsReadBlueBrush" Color="{StaticResource IsReadBlue}"></SolidColorBrush>
+</ResourceDictionary>
