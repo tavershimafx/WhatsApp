@@ -97,6 +97,53 @@ namespace WhatsApp.Desktop.Extensions
 
         #endregion
 
+        #region Slide from/to bottom
+
+        /// <summary>
+        /// Adds a slide animation effect to an element which slides the element into the
+        /// viewport from the bottom.
+        /// </summary>
+        /// <param name="storyboard"></param>
+        /// <param name="offset"></param>
+        /// <param name="decelerationRatio"></param>
+        /// <param name="duration"></param>
+        public static void AddSlideFromBottom(this Storyboard storyboard, double offset, double decelerationRatio = 0.9D, float duration = 0.3f)
+        {
+            var animation = new ThicknessAnimation
+            {
+                From = new Thickness(0, offset, 0, -offset),
+                To = new Thickness(0),
+                Duration = new Duration(TimeSpan.FromSeconds(duration)),
+                DecelerationRatio = decelerationRatio
+            };
+
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+            storyboard.Children.Add(animation);
+        }
+
+        /// <summary>
+        /// Adds a slide animation effect to move an element out of the viewport to the bottom
+        /// </summary>
+        /// <param name="storyboard"></param>
+        /// <param name="offset"></param>
+        /// <param name="decelerationRatio"></param>
+        /// <param name="duration"></param>
+        public static void AddSlideToBottom(this Storyboard storyboard, double offset, double decelerationRatio = 0.9D, float duration = 0.3f)
+        {
+            var animation = new ThicknessAnimation
+            {
+                From = new Thickness(0),
+                To = new Thickness(0, offset, 0, -offset),
+                Duration = new Duration(TimeSpan.FromSeconds(duration)),
+                DecelerationRatio = decelerationRatio
+            };
+
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+            storyboard.Children.Add(animation);
+        }
+
+        #endregion
+
         #region Fade In/out effect
 
         /// <summary>

@@ -56,18 +56,18 @@
 
                                             <!--The display name of the user-->
                                             <TextBlock Grid.Column="0"
-                            Text="{Binding Username}"
-                                   FontSize="{StaticResource FontSizeLarge}"
-                                   FontWeight="{Binding IsRead, Converter={local:IsReadToFontWeightConverter}}"
-                                   TextTrimming="CharacterEllipsis"
-                                   />
+                                                    Text="{Binding Username}"
+                                                    FontSize="{StaticResource FontSizeLarge}"
+                                                    FontWeight="{Binding IsRead, Converter={local:IsReadToFontWeightConverter}}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    />
 
                                             <!--The last message time-->
                                             <TextBlock Grid.Column="1"
-                            Text="{Binding LastMessageTimeString}"
-                                   HorizontalAlignment="Right"
-                                   FontSize="{StaticResource FontSizeMedium}"
-                                   />
+                                                 Text="{Binding LastMessageTimeString}"
+                                                HorizontalAlignment="Right"
+                                                FontSize="{StaticResource FontSizeMedium}"
+                                                    />
                                         </Grid>
 
                                         <!--The grid for the last message and number of unread messages-->
@@ -92,9 +92,10 @@
                                                 Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                                 Background="{StaticResource WhatsAppGreenBrush}"
                                                 CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                                    Visibility="{Binding HasUnreadMessage, Converter={local:BooleanToVisibilityConverter}}"
                                                 >
                                                 <TextBlock
-                                                    Text="1"
+                                                    Text="{Binding UnreadCount}"
                                                      VerticalAlignment="Center"
                                                     HorizontalAlignment="Center"
                                                     Foreground="White"

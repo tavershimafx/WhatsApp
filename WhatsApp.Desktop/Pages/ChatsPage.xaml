@@ -39,12 +39,8 @@
             </Grid.RowDefinitions>
             
             <!--The top header row-->
-            <Border Grid.Row="0" Height="68"
-                    Background="{StaticResource GrayBrush}"
-                    BorderThickness="1 0 0 0"
-                    BorderBrush="{StaticResource DarkBrush}">
-
-                <Grid>
+                <Grid Grid.Row="0" Height="68"
+                    Background="{StaticResource GrayBrush}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
@@ -55,7 +51,9 @@
                         
                         <!--Chatting User Profile picture-->
                         <Border Padding="8"
-                                Margin="0">
+                                Margin="0"
+                    BorderThickness="1 0 0 0"
+                    BorderBrush="{StaticResource DarkBrush}">
 
                             <!--User Profile picture-->
                             <Border Height="52"
@@ -87,28 +85,47 @@
                         <Button Content="&#xeb35;" Style="{StaticResource MenuButton}" />
                     </StackPanel>
                 </Grid>
-            </Border>
-            
+
+
             <!--The chats-->
             <local:ChatMessageList Grid.Row="1" DataContext="{Binding LoadedChat}" />
+
+
+            <local:BasePopup Grid.Row="1"
+                             Background="Transparent"
+                             VerticalAlignment="Bottom"
+                             HorizontalAlignment="Left"
+                             Margin="400 0 0 10"
+                              local:SlideInFromBottomProperty.Value="{Binding ShowEmojiPopup}"
+                              >
+
+                <local:AttachmentMenu />
+            </local:BasePopup>
             
             <!--Message compose section-->
-            <Border Grid.Row="2"
-                    Padding="5"
-                    Background="{StaticResource GrayBrush}">
-
-                <Grid>
+                <Grid Grid.Row="2" Background="{StaticResource GrayBrush}"
+                    Panel.ZIndex="2">
+                    
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
+
+                    <!-- Emoji and attachment buttons-->
                     <StackPanel Grid.Column="0" Orientation="Horizontal">
-                        <Button Content="&#xeae1;" Style="{StaticResource MenuButton}" Padding="15" />
-                        <Button Content="&#xeb48;" Style="{StaticResource MenuButton}" Padding="15" />
+
+                        <!--Emoji Button-->
+                        <Button Content="&#xeae1;" Style="{StaticResource MenuButton}" Padding="15"
+                                Command="{Binding EmojiAttachmentCommand}"/>
+
+                        <!--Attachment Button-->
+                        <Button Content="&#xeb48;" Style="{StaticResource MenuButton}" Padding="15"
+                                  />
                     </StackPanel>
 
+                <!--The new message input box-->
                     <TextBox x:Name="MessageContent" Grid.Column="1"
                              FontSize="{StaticResource FontSizeMedium}"
                              Style="{StaticResource ComposeTextBox}"
@@ -122,7 +139,7 @@
                         <Button Content="&#xeb2b;" Style="{StaticResource MenuButton}" Padding="15" />
                     </StackPanel>
                 </Grid>
-            </Border>
+           
         </Grid>
     </Grid>
 

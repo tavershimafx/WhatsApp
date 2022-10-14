@@ -55,5 +55,15 @@
         /// <see langword="true"/> if the message has been opened by the receiving end.
         /// </summary>
         public bool IsRead { get; set; }
+        
+        /// <summary>
+        /// The number of unread messages by the user
+        /// </summary>
+        public int UnreadCount { get; set; }
+
+        /// <summary>
+        /// True if there are any unread messages
+        /// </summary>
+        public bool HasUnreadMessage => UnreadCount > 0;
     }
 }

@@ -9,9 +9,9 @@ namespace WhatsApp.Desktop
         public override void DoAnimation(FrameworkElement element, object value)
         {
             if ((bool)value)
-                element.SlideAndFadeInFromRight();
+                element.SlideAndFadeInFromRight(IsFirstLoad? 0 : 0.9f);
             else
-                element.SlideAndFadeOutToLeft(width: Application.Current.MainWindow.Width);
+                element.SlideAndFadeOutToLeft(IsFirstLoad ? 0 : 0.9f);
         }
     }
 }

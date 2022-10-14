@@ -19,96 +19,98 @@ namespace WhatsApp.Core
         {
             return new ObservableCollection<RecentChatViewModel>()
             {
-                 new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Kosi",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    },
-                    new RecentChatDesignModel()
-                    {
-                        Username = "Shiphrah",
-                        ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
-                        LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
-                        LastSeenTime = DateTimeOffset.Now,
-                        LastMessageTime = DateTimeOffset.Now,
-                        MessageReadTime = DateTimeOffset.Now,
-                        IsRead = false
-                    }
+                new RecentChatDesignModel()
+                {
+                    Username = "Shiphrah",
+                    ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
+                    LastMessage = "Hello Shiphrah, I just want to say Happy birthday.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = false,
+                    UnreadCount = 3
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "Kosi",
+                    ProfilePictureUrl = "Resources/Images/kosi.jpg",
+                    LastMessage = "Let me continue my crushing.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = false,
+                    UnreadCount = 5
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "Ikenna",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "I have been trying to make the action work but seems not to be working.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "Olaoye",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "Okay boss.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "Anita",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "Hey babe, how have you been?",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "C#.Net Jobs and discussions",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "Oga, no be so oooo.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "GDG Mpape",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "+234 8033890976 joined using this group link.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "MSFT TECH COMMUNITY FUTO",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "Samson: 7 years back.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                },
+                new RecentChatDesignModel()
+                {
+                    Username = "Zinabe Stephen",
+                    ProfilePictureUrl = "Resources/Images/user.png",
+                    LastMessage = "So how e go be naw?.",
+                    LastSeenTime = DateTimeOffset.Now,
+                    LastMessageTime = DateTimeOffset.Now,
+                    MessageReadTime = DateTimeOffset.Now,
+                    IsRead = true
+                }
             };
         }
 
@@ -131,7 +133,7 @@ namespace WhatsApp.Core
             return new ChatMessageListViewModel 
             { 
                 Username = "Kosi",
-                ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
+                ProfilePictureUrl = "Resources/Images/kosi.jpg",
                 Items = ChatMessages() 
             };
         }

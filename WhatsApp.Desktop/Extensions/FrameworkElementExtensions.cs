@@ -70,5 +70,51 @@ namespace WhatsApp.Desktop.Extensions
 
             Task.Delay((int)(seconds * 1000));
         }
+
+        /// <summary>
+        /// Adds a slide and fade effect on an <paramref name="element"/> into the screen from
+        /// the bottom
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="height"></param>
+        public static void SlideAndFadeInFromBottom(this FrameworkElement element, float seconds = 0.9f, double height = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide in effect
+            storyboard.AddSlideFromBottom(height == 0 ? element.ActualHeight : height, duration: seconds);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Adds a slide and fade effect on the <paramref name="element"/> which transits it out
+        /// of the screen using the bottom as the exit path.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="height"></param>
+        public static void SlideAndFadeOutToBottom(this FrameworkElement element, float seconds = 0.9f, double height = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide in effect
+            storyboard.AddSlideToBottom(height == 0 ? element.ActualHeight : height, duration: seconds);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
     }
 }

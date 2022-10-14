@@ -1,12 +1,34 @@
-﻿<UserControl x:Class="WhatsApp.Desktop.Controls.Popup.BasePopup"
+﻿<UserControl x:Class="WhatsApp.Desktop.BasePopup"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WhatsApp.Desktop.Controls.Popup"
+             xmlns:local="clr-namespace:WhatsApp.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="300">
+
+    <!--<UserControl.Resources>
+        <Style TargetType="{x:Type UserControl}">
+            <Setter Property="Margin" Value="40 0 0 10" />
             
-    </Grid>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type UserControl}">
+                        <Border Margin="40 0 0 10" Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>-->
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="{x:Type UserControl}">
+            <Border Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}">
+                <ContentPresenter />
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
+   
 </UserControl>
