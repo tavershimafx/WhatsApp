@@ -8,7 +8,7 @@ namespace WhatsApp.Core
 
         public SideMenuDesignModel()
         {
-            RecentChats = SeedData.RecentChatList();
+            
         }
     }
 }

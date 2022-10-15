@@ -7,7 +7,7 @@ namespace WhatsApp.Core
     {
         public static SideMenuViewModel SideMenu()
         {
-            return new SideMenuViewModel() { RecentChats = RecentChatList() };
+            return new SideMenuViewModel();
         }
 
         public static RecentChatListViewModel RecentChatList()

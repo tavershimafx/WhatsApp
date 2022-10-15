@@ -19,6 +19,13 @@ namespace WhatsApp.Desktop
         /// </summary>
         public ExitAnimation ExitAnimation { get; set; } = ExitAnimation.SlideOutToLeft;
 
+        /// <summary>
+        /// A fix to animate the element out of the screen a page is switched. When a page is
+        /// switched, the page re-initializes itself and hence the <see cref="BasePage_Loaded(object, RoutedEventArgs)"/>
+        /// triggers again causing it to animate into the screen for the second time
+        /// </summary>
+        public bool ShouldAnimateOut { get; set; }
+
         public BaseControl()
         {
             if (DesignerProperties.GetIsInDesignMode(this))
@@ -29,7 +36,10 @@ namespace WhatsApp.Desktop
 
         private void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            AnimateIn();
+            if (ShouldAnimateOut)
+                AnimateOut();
+            else
+                AnimateIn();
         }
 
         public void AnimateIn()

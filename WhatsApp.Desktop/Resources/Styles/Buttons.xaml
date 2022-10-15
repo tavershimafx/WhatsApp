@@ -29,13 +29,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!--Menu button style-->
-    <Style x:Key="MenuButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+
+    <!--Icon button style-->
+    <Style x:Key="IconButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
         <Setter Property="FontFamily" Value="{StaticResource LineIcon}" />
         <Setter Property="Background" Value="{StaticResource GrayBrush}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="Padding" Value="23" />
+        <Setter Property="Padding" Value="10" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Width" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=ActualHeight}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -59,12 +59,48 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
+
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{StaticResource WhatsAppGreenBrush}" />
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <!--Rounded Icon button style-->
+    <Style x:Key="RoundedIconButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="FontFamily" Value="{StaticResource LineIcon}" />
+        <Setter Property="Background" Value="{StaticResource GrayBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource LightBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Width" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=ActualHeight}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--The menu icon-->
+                    <Border Padding="{TemplateBinding Padding}" Margin="0">
+
+                        <Border Padding="{TemplateBinding Padding}"
+                                Width="{TemplateBinding Height}"
+                                Background="{StaticResource WhatsAppGreenBrush}"
+                                CornerRadius="20"
+                                >
+
+                            <TextBlock Text="{TemplateBinding Content}" 
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   />
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!--Link button-->
@@ -81,7 +117,7 @@
             </Setter.Value>
 
         </Setter>
-        
+
         <Style.Triggers>
             <EventTrigger RoutedEvent="MouseEnter">
                 <BeginStoryboard>
@@ -201,10 +237,9 @@
         </Style.Triggers>
     </Style>
 
-
     <Style TargetType="{x:Type Button}" x:Key="AttachmentIcon" BasedOn="{StaticResource BaseButton}">
         <Setter Property="Background" Value="Transparent" />
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -223,6 +258,50 @@
                                        />
                         </Border>
                     </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Style for popup menu text item-->
+    <Style x:Key="PopupMenuTextButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{StaticResource LightBrush}" x:Name="boundedBox">
+                        <TextBlock Text="{TemplateBinding Content}"
+                                   FontSize="{StaticResource FontSizeMedium}"
+                                   Padding="25 12 50 12"
+                                   Foreground="{StaticResource VeryDarkBrush}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation From="{StaticResource Light}"
+                                                    To="{StaticResource Gray}"
+                                                    Duration="00:00:0.2"
+                                                    Storyboard.TargetProperty="Background.Color"
+                                                    Storyboard.TargetName="boundedBox"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource Light}"
+                                                    Duration="00:00:0.2"
+                                                    Storyboard.TargetProperty="Background.Color"
+                                                    Storyboard.TargetName="boundedBox"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

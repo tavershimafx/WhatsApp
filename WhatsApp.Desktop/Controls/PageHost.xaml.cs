@@ -31,7 +31,8 @@ namespace WhatsApp.Desktop
 
             // Swap the contents of the new frame to the old frame and 
             // animate the old frame out
-            oldFrame.Content = newFrame.Content;
+            if (newFrame.Content is not null)
+                oldFrame.Content = (newFrame.Content as BaseControl).ShouldAnimateOut = true;
 
             // dispose the contents of the new page for fresh content
             newFrame.Content = null;

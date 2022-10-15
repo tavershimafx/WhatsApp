@@ -10,7 +10,7 @@ namespace WhatsApp.Desktop.Extensions
     public static class FrameworkElementExtensions
     {
         /// <summary>
-        /// Adds a slide and fade effect to an element into the screen
+        /// Adds a slide and fade effect to an element into the screen from the right
         /// </summary>
         /// <param name="element"></param>
         public static void SlideAndFadeInFromRight(this FrameworkElement element, float seconds = 0.9f, double width = 0)
@@ -19,6 +19,26 @@ namespace WhatsApp.Desktop.Extensions
 
             // Add a slide effect
             storyboard.AddSlideFromRight(width == 0 ? element.ActualWidth : width, duration: seconds);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Adds a slide and fade effect to an element out of the screen to the right
+        /// </summary>
+        /// <param name="element"></param>
+        public static void SlideAndFadeOutToRight(this FrameworkElement element, float seconds = 0.9f, double width = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide effect
+            storyboard.AddSlideToRight(width == 0 ? element.ActualWidth : width, duration: seconds);
 
             // add a fade effect
             storyboard.FadeIn();
@@ -107,6 +127,98 @@ namespace WhatsApp.Desktop.Extensions
 
             // Add a slide in effect
             storyboard.AddSlideToBottom(height == 0 ? element.ActualHeight : height, duration: seconds);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Adds a slide and fade effect on an <paramref name="element"/> into the screen from
+        /// the bottom
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="height"></param>
+        public static void SlideAndFadeInFromTop(this FrameworkElement element, float seconds = 0.9f, double height = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide in effect
+            storyboard.AddSlideFromTop(height == 0 ? element.ActualHeight : height, duration: seconds);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Adds a slide and fade effect on the <paramref name="element"/> which transits it out
+        /// of the screen using the bottom as the exit path.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="height"></param>
+        public static void SlideAndFadeOutToTop(this FrameworkElement element, float seconds = 0.9f, double height = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide in effect
+            storyboard.AddSlideToTop(height == 0 ? element.ActualHeight : height, duration: seconds);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Adds a zoom and fade effect on the <paramref name="element"/> which transits it out
+        /// of the screen using the top as the exit path.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="height"></param>
+        public static void AddZoomAndFadeInFromTop(this FrameworkElement element, float seconds = 0.9f, double height = 0, double width = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide in effect
+            storyboard.AddZoomFromTop(duration: seconds, height == 0 ? element.ActualHeight : height, width == 0 ? element.ActualWidth : width);
+
+            // add a fade effect
+            storyboard.FadeIn();
+
+            storyboard.Begin(element);
+            element.Visibility = Visibility.Visible;
+
+            Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Adds a zoom and fade effect on the <paramref name="element"/> which transits it out
+        /// of the screen using the top as the exit path.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="height"></param>
+        public static void AddZoomAndFadeOutToTop(this FrameworkElement element, float seconds = 0.9f, double height = 0, double width = 0)
+        {
+            Storyboard storyboard = new();
+
+            // Add a slide in effect
+            storyboard.AddZoomToTop(duration: seconds, height == 0 ? element.ActualHeight : height, width == 0 ? element.ActualWidth : width);
 
             // add a fade effect
             storyboard.FadeIn();

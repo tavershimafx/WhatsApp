@@ -14,4 +14,26 @@ namespace WhatsApp.Desktop
                 element.SlideAndFadeOutToLeft(IsFirstLoad ? 0 : 0.9f);
         }
     }
+
+    public class SlideInAndOutToRightProperty : FrameworkElementBaseAnimation<SlideInAndOutToRightProperty>
+    {
+        public override void DoAnimation(FrameworkElement element, object value)
+        {
+            if ((bool)value)
+                element.SlideAndFadeInFromRight(IsFirstLoad ? 0 : 0.6f);
+            else
+                element.SlideAndFadeOutToRight(IsFirstLoad ? 0 : 0.6f);
+        }
+    }
+
+    public class SlideInFromLeftProperty : FrameworkElementBaseAnimation<SlideInFromLeftProperty>
+    {
+        public override void DoAnimation(FrameworkElement element, object value)
+        {
+            if ((bool)value)
+                element.SlideAndFadeInFromLeft(IsFirstLoad ? 0 : 0.9f);
+            else
+                element.SlideAndFadeOutToLeft(IsFirstLoad ? 0 : 0.9f);
+        }
+    }
 }

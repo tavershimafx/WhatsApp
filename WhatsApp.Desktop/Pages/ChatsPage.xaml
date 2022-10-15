@@ -21,112 +21,164 @@
         <local:SideMenu Width="350" Grid.Column="0"
                         local:SlideInFromLeftProperty.Value="{Binding ApplicationState.IsLoggedIn, 
                         Source={x:Static local:ApplicationViewModel.Current}}"
-                        >
-            <local:RecentChatList DataContext="{Binding SelectedChat}" />
-        </local:SideMenu>
+                        DataContext="{Binding SideMenu}"
+                        />
 
+        <local:SearchNav Grid.Column="1"
+                         Panel.ZIndex="3"
+                         HorizontalAlignment="Right"
+                             local:SlideInAndOutToRightProperty.Value="{Binding ShowSearchSideMenu}"
+                             />
+        
         <!--The right selected chat area-->
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" ClipToBounds="True">
             <Grid.RowDefinitions>
                 <!--The selected messages header-->
                 <RowDefinition Height="Auto" />
-                
+
                 <!--The chat messages-->
                 <RowDefinition Height="*" />
-                
+
                 <!--The area for composing a message-->
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            
+
             <!--The top header row-->
-                <Grid Grid.Row="0" Height="68"
+            <Grid Grid.Row="0" Height="68"
+                  Panel.ZIndex="7"
                     Background="{StaticResource GrayBrush}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Orientation="Horizontal">
-                        
-                        <!--Chatting User Profile picture-->
-                        <Border Padding="8"
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+
+                    <!--Chatting User Profile picture-->
+                    <Border Padding="8"
                                 Margin="0"
-                    BorderThickness="1 0 0 0"
-                    BorderBrush="{StaticResource DarkBrush}">
+                                BorderThickness="1 0 0 0"
+                                BorderBrush="{StaticResource DarkBrush}">
 
-                            <!--User Profile picture-->
-                            <Border Height="52"
+                        <!--User Profile picture-->
+                        <Border Height="52"
                                 Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                 CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                                 >
 
-                                <Border.Background>
-                                    <ImageBrush ImageSource="{Binding LoadedChat.ProfilePictureUrl, Converter={local:PathToImageConverter}}"
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding LoadedChat.ProfilePictureUrl, Converter={local:PathToImageConverter}}"
                                     Viewport="-5 0 65 75"
                                     ViewportUnits="Absolute"/>
-                                    <!--<SolidColorBrush Color="{StaticResource WhatsAppDarkGreen}" />-->
-                                </Border.Background>
-                            </Border>
+                                <!--<SolidColorBrush Color="{StaticResource WhatsAppDarkGreen}" />-->
+                            </Border.Background>
                         </Border>
+                    </Border>
 
-                        <!--The chatting user's username-->
-                        <TextBlock Text="{Binding LoadedChat.Username}"
+                    <!--The chatting user's username-->
+                    <TextBlock Text="{Binding LoadedChat.Username}"
                            FontSize="{StaticResource FontSizeLarge}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
                            Foreground="{StaticResource VeryDarkBrush}"
                            />
-                    </StackPanel>
+                </StackPanel>
+
+                <!--Chat options menu-->
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Content="&#xeb85;" Style="{StaticResource IconButton}" Padding="23"
+                            Command="{Binding TogglePopupCommand}"
+                            CommandParameter="SearchMenu"/>
                     
-                    <!--Chat options menu-->
-                    <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal">
-                        <Button Content="&#xeb85;" Style="{StaticResource MenuButton}" />
-                        <Button Content="&#xeb35;" Style="{StaticResource MenuButton}" />
-                    </StackPanel>
-                </Grid>
+                    <!--Chat setting button-->
+                    <Button Content="&#xeb35;" Style="{StaticResource IconButton}" Padding="23"
+                            Command="{Binding TogglePopupCommand}"
+                            CommandParameter="ChatOptions"/>
+                </StackPanel>
+            </Grid>
 
+            <!--A transparent background to close all popups when they any position of this area is clicked-->
+            <Border Grid.Row="1"
+                    Background="Transparent"
+                    Panel.ZIndex="3"
+                    Visibility="{Binding OverlayVisible, Converter={local:BooleanToVisibilityConverter}}"
+                    Height="{Binding ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}}"
+                    Width="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Grid}}">
 
+                <Border.InputBindings>
+                    <MouseBinding MouseAction="RightClick" Command="{Binding ClosePopupsCommand}" />
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding ClosePopupsCommand}" />
+                </Border.InputBindings>
+            </Border>
+            
             <!--The chats-->
-            <local:ChatMessageList Grid.Row="1" DataContext="{Binding LoadedChat}" />
+            <local:ChatMessageList Grid.Row="1" DataContext="{Binding LoadedChat}" 
+                                   Panel.ZIndex="2" />
 
+            <!--Current Chat options popup-->
+            <local:BasePopup Grid.Row="1"
+                             Background="Transparent"
+                             VerticalAlignment="Top"
+                             HorizontalAlignment="Right"
+                             Margin="40, 0, 0, 10"
+                             Panel.ZIndex="5"
+                             local:ZoomInFromTopProperty.Value="{Binding ShowChatOptionsPopup}"
+                              >
 
+                <local:ChatOptionsMenu />
+            </local:BasePopup>
+
+            <!--Chat attachment popup-->
             <local:BasePopup Grid.Row="1"
                              Background="Transparent"
                              VerticalAlignment="Bottom"
                              HorizontalAlignment="Left"
-                             Margin="400 0 0 10"
-                              local:SlideInFromBottomProperty.Value="{Binding ShowEmojiPopup}"
+                             Margin="40, 0, 0, 10"
+                             Panel.ZIndex="5"
+                             local:SlideInFromBottomProperty.Value="{Binding ShowAttachmentPopup}"
                               >
 
                 <local:AttachmentMenu />
             </local:BasePopup>
+
+            <!--voice note popup-->
+            <local:BasePopup Grid.Row="2"
+                             Background="Transparent"
+                             Panel.ZIndex="8"
+                             local:SlideInAndOutToRightProperty.Value="{Binding ShowVoiceNotePopup}"
+                              >
+
+                <local:VoiceNoteMenu />
+            </local:BasePopup>
             
             <!--Message compose section-->
-                <Grid Grid.Row="2" Background="{StaticResource GrayBrush}"
-                    Panel.ZIndex="2">
-                    
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+            <Grid Grid.Row="2" Background="{StaticResource GrayBrush}"
+                    Panel.ZIndex="7">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
 
-                    <!-- Emoji and attachment buttons-->
-                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <!-- Emoji and attachment buttons-->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
 
-                        <!--Emoji Button-->
-                        <Button Content="&#xeae1;" Style="{StaticResource MenuButton}" Padding="15"
-                                Command="{Binding EmojiAttachmentCommand}"/>
+                    <!--Emoji Button-->
+                    <Button Content="&#xeae1;" Style="{StaticResource IconButton}" Padding="15"
+                                Command="{Binding TogglePopupCommand}"
+                                CommandParameter="Emoji"/>
 
-                        <!--Attachment Button-->
-                        <Button Content="&#xeb48;" Style="{StaticResource MenuButton}" Padding="15"
-                                  />
-                    </StackPanel>
+                    <!--Attachment Button-->
+                    <Button Content="&#xeb48;" Style="{StaticResource IconButton}" Padding="15"
+                                  Command="{Binding TogglePopupCommand}"
+                                  CommandParameter="Resource"/>
+                </StackPanel>
 
                 <!--The new message input box-->
-                    <TextBox x:Name="MessageContent" Grid.Column="1"
+                <TextBox x:Name="MessageContent" Grid.Column="1"
                              FontSize="{StaticResource FontSizeMedium}"
                              Style="{StaticResource ComposeTextBox}"
                              VerticalScrollBarVisibility="Auto"
@@ -135,11 +187,14 @@
                              Tag="Type a message"
                              />
 
-                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Content="&#xeb2b;" Style="{StaticResource MenuButton}" Padding="15" />
-                    </StackPanel>
-                </Grid>
-           
+                <!--Voice note record button-->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="&#xeb2b;" Style="{StaticResource IconButton}" Padding="20"
+                            Command="{Binding TogglePopupCommand}"
+                            CommandParameter="VoiceNote"/>
+                </StackPanel>
+            </Grid>
+
         </Grid>
     </Grid>
 

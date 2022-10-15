@@ -5,8 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WhatsApp.Desktop"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="100" d:DesignWidth="700">
+   
+        <Grid Background="{StaticResource GrayBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
             
-    </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--Delete and audio time-->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <!--Delete audio button-->
+                    <Button Content="&#xebdf;" Style="{StaticResource IconButton}" Padding="10" />
+
+                    <!--Audio time-->
+                    <TextBlock Text="0:10" Padding="12"
+                           VerticalAlignment="Center"
+                           FontSize="{StaticResource FontSizeMedium}"/>
+                </StackPanel>
+
+                <!--The voice note sync-->
+                <Grid Grid.Column="1">
+                <TextBlock Text=".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ." 
+                               VerticalAlignment="Center" />
+                </Grid>
+
+                <!--Pause and send button-->
+                <StackPanel Grid.Column="2" Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                    <!--Pause send-->
+                    <Button Content="&#xeb4a;" Style="{StaticResource IconButton}"
+                            Foreground="Red"/>
+
+                    <!--Send button-->
+                    <Button Content="&#xebcb;" Style="{StaticResource RoundedIconButton}"
+                            />
+                </StackPanel>
+            </Grid>
+
+            <Border Grid.Column="1" />
+        </Grid>
+
 </UserControl>

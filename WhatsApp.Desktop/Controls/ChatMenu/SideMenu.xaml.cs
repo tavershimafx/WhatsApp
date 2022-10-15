@@ -8,7 +8,7 @@ namespace WhatsApp.Desktop
     /// <summary>
     /// Interaction logic for SideMenu.xaml
     /// </summary>
-    public partial class SideMenu : UserControl
+    public partial class SideMenu : BaseControl<SideMenuViewModel>
     {
         public SideMenu()
         {
