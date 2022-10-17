@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using WhatsApp.Core.Commands;
+using WhatsApp.Core.EventHandlers;
 
 namespace WhatsApp.Core
 {
@@ -15,6 +16,12 @@ namespace WhatsApp.Core
         /// right pane for previous conversations to and from a selected user
         /// </summary>
         public ChatMessageListViewModel LoadedChat { get; set; }
+
+        /// <summary>
+        /// The left profile menu which slides in from left to edit the user's
+        /// profile details.
+        /// </summary>
+        public UserProfileMenuViewModel ProfileMenu { get; set; }
 
         /// <summary>
         /// A flag to determine if to show the popup menu for emoji
@@ -46,6 +53,12 @@ namespace WhatsApp.Core
         /// A flag to toggle the side menu in or out
         /// </summary>
         public bool ShowSearchSideMenu { get; set; }
+
+        /// <summary>
+        /// A flag to toggle the profile side menu in or out
+        /// </summary>
+        public bool ShowUserProfileSideMenu { get; set; }
+
         #endregion
 
         #region Public commands
@@ -65,10 +78,31 @@ namespace WhatsApp.Core
 
         public ChatPageViewModel()
         {
-            LoadedChat = SeedData.ChatMessageList();
-            SideMenu = new SideMenuViewModel();
             TogglePopupCommand = new CommandBase(TogglePopup);
             ClosePopupsCommand = new CommandBase(ClosePopups);
+
+            LoadedChat = SeedData.ChatMessageList();
+            SideMenu = new SideMenuViewModel();
+            ProfileMenu = new UserProfileMenuViewModel() 
+            { 
+                Username = "Tavershima",
+                AboutInfo = "Make sure your name is written in the book that is always read before the assembly.",
+                ProfilePicturePath = "Resources/Images/me.jpeg"
+            };
+
+            // Subscribe to the side menu's profile sidebar state changes
+            this.SideMenu.UserProfileMenuStateChanged += SideMenu_PropertyChanged;
+            this.ProfileMenu.UserProfileMenuStateChanged += SideMenu_PropertyChanged2;
+        }
+
+        private void SideMenu_PropertyChanged(object? sender, EventArgs e)
+        {
+            ShowUserProfileSideMenu ^= true;
+        }
+
+        private void SideMenu_PropertyChanged2(object? sender, EventArgs e)
+        {
+            ShowUserProfileSideMenu ^= true;
         }
 
         /// <summary>
@@ -78,7 +112,7 @@ namespace WhatsApp.Core
         private void ClosePopups(object obj)
         {
             // Remove the overlay then close the popup
-            this.OverlayVisible = false;
+            this.OverlayVisible ^= true;
 
             this.ShowAttachmentPopup = false;
             this.ShowEmojiPopup = false;
@@ -109,6 +143,9 @@ namespace WhatsApp.Core
                     break;
                 case ChatPageMenu.SearchMenu:
                     this.ShowSearchSideMenu ^= true;
+                    break;
+                case ChatPageMenu.UserProfile:
+                    this.ShowUserProfileSideMenu ^= true;
                     break;
                 default:
                     break;
@@ -147,6 +184,11 @@ namespace WhatsApp.Core
             /// Identifier to display the search side menu
             /// </summary>
             public const string SearchMenu = "SearchMenu";
+
+            /// <summary>
+            /// Identifier for the user profile side menu.
+            /// </summary>
+            public const string UserProfile = "UserProfile";
         }
     }
 }

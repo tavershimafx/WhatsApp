@@ -16,9 +16,9 @@
                         <BeginStoryboard>
                             <Storyboard>
                                 <ColorAnimation From="{Binding Background, RelativeSource={RelativeSource Self}}"
-                                                        To="#0EABF4"
-                                                        Duration="00:00:0.3"
-                                                        Storyboard.TargetProperty="Background.Color"/>
+                                                To="#0EABF4"
+                                                Duration="00:00:0.3"
+                                                Storyboard.TargetProperty="Background.Color"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -27,8 +27,8 @@
                         <BeginStoryboard>
                             <Storyboard>
                                 <ColorAnimation To="{Binding Background, RelativeSource={RelativeSource Self}}"
-                                                        Duration="00:00:0.3"
-                                                        Storyboard.TargetProperty="Background.Color"/>
+                                                Duration="00:00:0.3"
+                                                Storyboard.TargetProperty="Background.Color"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>

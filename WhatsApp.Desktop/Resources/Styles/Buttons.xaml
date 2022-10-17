@@ -9,7 +9,7 @@
     <Style x:Key="DefaultButton" TargetType="{x:Type Button}">
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="Background" Value="{StaticResource WhatsAppGreenBrush}" />
+        <Setter Property="Background" Value="{StaticResource WhatsAppDarkGreenBrush}" />
         <Setter Property="Padding" Value="25 10" />
 
         <Setter Property="Template">
@@ -62,7 +62,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource WhatsAppGreenBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource WhatsAppDarkGreenBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -85,7 +85,7 @@
 
                         <Border Padding="{TemplateBinding Padding}"
                                 Width="{TemplateBinding Height}"
-                                Background="{StaticResource WhatsAppGreenBrush}"
+                                Background="{StaticResource WhatsAppDarkGreenBrush}"
                                 CornerRadius="20"
                                 >
 
@@ -122,14 +122,18 @@
             <EventTrigger RoutedEvent="MouseEnter">
                 <BeginStoryboard>
                     <Storyboard>
-                        <ColorAnimation To="{StaticResource WhatsAppDarkGreen}" Storyboard.TargetProperty="Foreground.Color" Duration="00:00:0.3" />
+                        <ColorAnimation To="{StaticResource WhatsAppDarkGreen}" 
+                                        Storyboard.TargetProperty="Foreground.Color" 
+                                        Duration="00:00:0.3" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
             <EventTrigger RoutedEvent="MouseLeave">
                 <BeginStoryboard>
                     <Storyboard>
-                        <ColorAnimation To="{StaticResource VeryDark}" Storyboard.TargetProperty="Foreground.Color" Duration="00:00:0.3" />
+                        <ColorAnimation To="{StaticResource VeryDark}" 
+                                        Storyboard.TargetProperty="Foreground.Color" 
+                                        Duration="00:00:0.3" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
@@ -145,7 +149,7 @@
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border x:Name="rectangle"
                         SnapsToDevicePixels="True"
-                        Background="{StaticResource WhatsAppGreenBrush}"
+                        Background="{StaticResource WhatsAppDarkGreenBrush}"
                         Opacity="0.2"
                         CornerRadius="3"
                         Height="{TemplateBinding Height}"

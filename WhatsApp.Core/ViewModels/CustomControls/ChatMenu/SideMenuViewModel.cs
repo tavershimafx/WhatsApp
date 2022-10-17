@@ -1,10 +1,20 @@
 ﻿using System.Windows.Input;
 using WhatsApp.Core.Commands;
+using WhatsApp.Core.EventHandlers;
 
 namespace WhatsApp.Core
 {
     public class SideMenuViewModel : BaseViewModel
     {
+        #region Public events
+
+        /// <summary>
+        /// A public event to notify the chat page to toggle the profile sidebar
+        /// </summary>
+        public event EventHandler UserProfileMenuStateChanged = delegate { };
+
+        #endregion
+
         #region Public properties
 
         /// <summary>
@@ -58,6 +68,9 @@ namespace WhatsApp.Core
                 case ChatSettingMenu.NewChat:
                     this.ShowNewChatSideMenu ^= true;
                     return;
+                case ChatSettingMenu.UserProfile:
+                    this.UserProfileMenuStateChanged.Invoke(this, new EventArgs());
+                    return;
                 default:
                     break;
             }
@@ -77,6 +90,11 @@ namespace WhatsApp.Core
             /// Identifier for new chat sidebar
             /// </summary>
             public const string NewChat = "NewChat";
+
+            /// <summary>
+            /// Identifier for the user profile side menu
+            /// </summary>
+            public const string UserProfile = "UserProfile";
         }
     }
 }

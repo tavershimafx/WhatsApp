@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:WhatsApp.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="300">
+    
     <UserControl.Template>
         <ControlTemplate TargetType="{x:Type UserControl}">
             <Border Background="White" Width="350">

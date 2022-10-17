@@ -17,7 +17,7 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource VeryDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource WhatsAppGreenBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource WhatsAppDarkGreenBrush}"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="0 5 0 0"/>
@@ -82,7 +82,7 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource VeryDarkBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource WhatsAppGreenBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource WhatsAppDarkGreenBrush}"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="0 5 0 0"/>

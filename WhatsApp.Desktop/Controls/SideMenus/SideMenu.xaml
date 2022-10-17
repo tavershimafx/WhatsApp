@@ -43,6 +43,14 @@
                                             ViewportUnits="Absolute"/>
                                     <!--<SolidColorBrush Color="{StaticResource WhatsAppDarkGreen}" />-->
                                 </Border.Background>
+
+                                <!--Action when the profile picture is clicked-->
+                                <Border.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" 
+                                                  Command="{Binding TogglePopupCommand}"
+                                                  CommandParameter="UserProfile"
+                                                  />
+                                </Border.InputBindings>
                             </Border>
                         </Border>
                         
@@ -81,12 +89,12 @@
                 <StackPanel Grid.Row="1" Orientation="Vertical">
                     <!--Search box-->
                     <Border Padding="20 8 40 5" Panel.ZIndex="3" 
-                        VerticalAlignment="Top">
+                        >
                         <TextBox Style="{StaticResource SearchBox}" x:Name="TxtSearch" Tag="Search or start a new chat"/>
                     </Border>
 
                     <!--The chat items-->
-                    <Border Panel.ZIndex="3" VerticalAlignment="Top">
+                    <Border Panel.ZIndex="3">
                         <local:RecentChatList DataContext="{Binding SelectedChat}" />
                     </Border>
                 </StackPanel>

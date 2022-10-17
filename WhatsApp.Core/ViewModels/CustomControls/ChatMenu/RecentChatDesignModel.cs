@@ -12,7 +12,7 @@ namespace WhatsApp.Core
         public RecentChatDesignModel()
         {
             Username = "Kosi";
-            ProfilePictureUrl = "";
+            ProfilePictureUrl = "Resources/Images/kosi.jpg";
             LastMessage = "Hey, how was today? Don't forget to include every bit of the gist tonight.";
             LastSeenTime = DateTimeOffset.Now;
             LastMessageTime = DateTimeOffset.Now;

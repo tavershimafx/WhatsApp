@@ -21,14 +21,17 @@
     <Color x:Key="VeryDark">#000000</Color>
     <SolidColorBrush x:Key="VeryDarkBrush" Color="{StaticResource VeryDark}"></SolidColorBrush>
 
-    <Color x:Key="WhatsAppDarkGreen">#06CF9C</Color>
-    <SolidColorBrush x:Key="WhatsAppGreenBrush" Color="{StaticResource WhatsAppDarkGreen}"></SolidColorBrush>
-
     <Color x:Key="WhatsAppLightGreen">#D9FDD3</Color>
     <SolidColorBrush x:Key="WhatsAppLightGreenBrush" Color="{StaticResource WhatsAppLightGreen}"></SolidColorBrush>
 
     <Color x:Key="WhatsAppBrightGreen">#25D366</Color>
     <SolidColorBrush x:Key="WhatsAppBrightGreenBrush" Color="{StaticResource WhatsAppBrightGreen}"></SolidColorBrush>
+
+    <Color x:Key="WhatsAppDarkGreen">#06CF9C</Color>
+    <SolidColorBrush x:Key="WhatsAppDarkGreenBrush" Color="{StaticResource WhatsAppDarkGreen}"></SolidColorBrush>
+
+    <Color x:Key="WhatsAppDarkerGreen">#008069</Color>
+    <SolidColorBrush x:Key="WhatsAppDarkerGreenBrush" Color="{StaticResource WhatsAppDarkerGreen}"></SolidColorBrush>
 
     <Color x:Key="IsReadBlue">#00AFF0</Color>
     <SolidColorBrush x:Key="IsReadBlueBrush" Color="{StaticResource IsReadBlue}"></SolidColorBrush>

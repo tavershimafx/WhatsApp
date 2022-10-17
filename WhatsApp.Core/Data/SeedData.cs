@@ -19,7 +19,7 @@ namespace WhatsApp.Core
         {
             return new ObservableCollection<RecentChatViewModel>()
             {
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "Shiphrah",
                     ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
@@ -30,7 +30,7 @@ namespace WhatsApp.Core
                     IsRead = false,
                     UnreadCount = 3
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "Kosi",
                     ProfilePictureUrl = "Resources/Images/kosi.jpg",
@@ -41,7 +41,7 @@ namespace WhatsApp.Core
                     IsRead = false,
                     UnreadCount = 5
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "Ikenna",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -51,7 +51,7 @@ namespace WhatsApp.Core
                     MessageReadTime = DateTimeOffset.Now,
                     IsRead = true
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "Olaoye",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -61,7 +61,7 @@ namespace WhatsApp.Core
                     MessageReadTime = DateTimeOffset.Now,
                     IsRead = true
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "Anita",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -71,7 +71,7 @@ namespace WhatsApp.Core
                     MessageReadTime = DateTimeOffset.Now,
                     IsRead = true
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "C#.Net Jobs and discussions",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -81,7 +81,7 @@ namespace WhatsApp.Core
                     MessageReadTime = DateTimeOffset.Now,
                     IsRead = true
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "GDG Mpape",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -91,7 +91,7 @@ namespace WhatsApp.Core
                     MessageReadTime = DateTimeOffset.Now,
                     IsRead = true
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "MSFT TECH COMMUNITY FUTO",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -101,7 +101,7 @@ namespace WhatsApp.Core
                     MessageReadTime = DateTimeOffset.Now,
                     IsRead = true
                 },
-                new RecentChatDesignModel()
+                new RecentChatViewModel()
                 {
                     Username = "Zinabe Stephen",
                     ProfilePictureUrl = "Resources/Images/user.png",
@@ -119,7 +119,7 @@ namespace WhatsApp.Core
             return new RecentChatViewModel()
             {
                 Username = "Shiphrah",
-                ProfilePictureUrl = "/Resources/Images/shiphrah.jpg",
+                ProfilePictureUrl = "Resources/Images/shiphrah.jpg",
                 LastMessage = "Hello Shiphrah, I just want to say Happy birthday. I lack logical expressions to present to you but...",
                 LastSeenTime = DateTimeOffset.Now,
                 LastMessageTime = DateTimeOffset.Now,

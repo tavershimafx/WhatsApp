@@ -17,6 +17,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--The user profile info side menu-->
+        <!--<local:UserProfileMenu
+                Panel.ZIndex="7"
+                HorizontalAlignment="Left"
+                local:SlideInFromLeftProperty.Value="{Binding ShowUserProfileSideMenu}"
+                
+            />-->
+
         <!--Side menu-->
         <local:SideMenu Width="350" Grid.Column="0"
                         local:SlideInFromLeftProperty.Value="{Binding ApplicationState.IsLoggedIn, 
@@ -24,10 +32,11 @@
                         DataContext="{Binding SideMenu}"
                         />
 
+        <!--Search sidebar for searching chats-->
         <local:SearchNav Grid.Column="1"
                          Panel.ZIndex="3"
                          HorizontalAlignment="Right"
-                             local:SlideInAndOutToRightProperty.Value="{Binding ShowSearchSideMenu}"
+                         local:SlideInAndOutToRightProperty.Value="{Binding ShowSearchSideMenu}"
                              />
         
         <!--The right selected chat area-->
@@ -71,7 +80,6 @@
                                 <ImageBrush ImageSource="{Binding LoadedChat.ProfilePictureUrl, Converter={local:PathToImageConverter}}"
                                     Viewport="-5 0 65 75"
                                     ViewportUnits="Absolute"/>
-                                <!--<SolidColorBrush Color="{StaticResource WhatsAppDarkGreen}" />-->
                             </Border.Background>
                         </Border>
                     </Border>
@@ -169,7 +177,7 @@
                     <!--Emoji Button-->
                     <Button Content="&#xeae1;" Style="{StaticResource IconButton}" Padding="15"
                                 Command="{Binding TogglePopupCommand}"
-                                CommandParameter="Emoji"/>
+                                CommandParameter="UserProfile"/>
 
                     <!--Attachment Button-->
                     <Button Content="&#xeb48;" Style="{StaticResource IconButton}" Padding="15"
