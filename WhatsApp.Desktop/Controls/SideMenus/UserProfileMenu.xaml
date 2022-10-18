@@ -40,7 +40,12 @@
                             Width="{Binding Height, RelativeSource={RelativeSource Self}}"
                             CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
                             >
-                       
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding ProfilePictureUrl, Converter={local:PathToImageConverter}}"
+                                        ViewportUnits="Absolute"
+                                        Viewport="0 0 250 250"
+                                        />
+                        </Border.Background>
                     </Border>
                 </Border>
                 

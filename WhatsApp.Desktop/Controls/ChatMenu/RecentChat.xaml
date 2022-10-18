@@ -31,8 +31,8 @@
 
                                         <Border.Background>
                                             <ImageBrush ImageSource="{Binding ProfilePictureUrl, Converter={local:PathToImageConverter}}"
-                                            Viewport="0 0 60 75"
-                                            ViewportUnits="Absolute"/>
+                                                        Viewport="0 0 60 75"
+                                                        ViewportUnits="Absolute" />
                                         </Border.Background>
                                     </Border>
                                 </Border>
@@ -140,6 +140,6 @@
 
 
     <ContentControl d:DataContext="{x:Static core:RecentChatDesignModel.Instance}"
-                   
+                   DataContext="{Binding}"
                     Style="{StaticResource RecentChatStyle}" />
 </UserControl>

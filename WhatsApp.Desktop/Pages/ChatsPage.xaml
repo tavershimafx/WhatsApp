@@ -18,12 +18,12 @@
         </Grid.ColumnDefinitions>
 
         <!--The user profile info side menu-->
-        <!--<local:UserProfileMenu
+        <local:UserProfileMenu
                 Panel.ZIndex="7"
                 HorizontalAlignment="Left"
-                local:SlideInFromLeftProperty.Value="{Binding ShowUserProfileSideMenu}"
-                
-            />-->
+                local:SlideInFromLeftProperty.Value="{Binding ViewModel.ShowUserProfileSideMenu, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ChatPage}}}"
+                DataContext="{Binding ProfileMenu}"
+            />
 
         <!--Side menu-->
         <local:SideMenu Width="350" Grid.Column="0"

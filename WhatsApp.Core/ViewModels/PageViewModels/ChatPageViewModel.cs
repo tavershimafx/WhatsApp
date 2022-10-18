@@ -87,7 +87,7 @@ namespace WhatsApp.Core
             { 
                 Username = "Tavershima",
                 AboutInfo = "Make sure your name is written in the book that is always read before the assembly.",
-                ProfilePicturePath = "Resources/Images/me.jpeg"
+                ProfilePictureUrl = "Resources/Images/me.jpeg"
             };
 
             // Subscribe to the side menu's profile sidebar state changes

@@ -27,7 +27,7 @@ namespace WhatsApp.Core
         /// <summary>
         /// The absolute path to local to the user's profile picture
         /// </summary>
-        public string ProfilePicturePath { get; set; }
+        public string ProfilePictureUrl { get; set; }
 
         /// <summary>
         /// The handler for the side menu toggle.
